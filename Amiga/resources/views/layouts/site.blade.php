@@ -54,7 +54,7 @@
               <li class="nav-item"><a href="layout.html" class="nav-link icon d-flex align-items-center"><i
                     class="ion-ios-home mr-2"></i> Home</a></li>
               <li class="nav-item"><a href="atividades.html" class="nav-link icon d-flex align-items-center"><i
-                class="ion-ios-calendar mr-2"></i> Atividaes</a></li>
+                class="ion-ios-calendar mr-2"></i> Atividades</a></li>
              <li class="nav-item"><a href="#" class="nav-link icon d-flex align-items-center"><i
                 class="ion-ios-text-snippet mr-2"></i> Notícias</a></li>
             </ul>
