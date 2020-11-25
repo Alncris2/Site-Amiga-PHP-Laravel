@@ -22,7 +22,7 @@
 				<tr>
 					<th scope="col">Id</th>
 					<th scope="col">Título</th>
-					<th scope="col">Descrição</th>
+					<th scope="col">Descrição roi</th>
 					<th scope="col">Imagem</th>
 					<th scope="col">Ordem</th>
 					<th scope="col">Ação</th>
