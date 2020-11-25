@@ -1,47 +1,45 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="container">
-			<h2 class="center">Lista de Tipos
-			</h2>
-			
-			<div class="row">
-				 <nav>
-	  				  <div class="nav-wrapper green">
-	    				  <div class="col s12">
-	    					    <a href="{{ route('admin.principal') }}" class="breadcrumb">Início</a>
-	        					<a class="breadcrumb">Lista de Tipos</a>
-	   					  </div>
-	   				  </div>
-	 			 </nav>
-			</div>
-		<div class="row">
-			<table>
-				<thead>
-					<tr>
-						<th>Id</th>
-						<th>Título</th>
-						<th>Ação</th>
-					</tr>
-				</thead>
-				<tbody>
-					@foreach($registros as $registro)
-					<tr>
-						<td>{{ $registro->id }}</td>
-						<td>{{ $registro->titulo }}</td>
-						<td>
-							<a class="btn orange" href=" {{ route('admin.tipos.editar', $registro->id) }}">Editar</a>
-							<a class="btn red" href="javascript: if(confirm('deletar esse registro ?')){ window.location.href = '{{ route('admin.tipos.deletar',$registro->id) }}' }">Deletar</a> 
-						</td>
-					</tr>
-					@endforeach
-				</tbody>
-			</table>
-		</div>
+<div class="container">
+	<h2 class="center">Lista de Tipos
+	</h2>
 
-		<div class="row">
-			<a class="btn blue" href="{{ route('admin.tipos.adicionar') }}">Adicionar</a>
-		</div>
+	<div class="row">
+
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="{{ route('admin.principal') }}">Início</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Lista de Tipos</li>
+			</ol>
+		</nav>
+
 	</div>
-
+	<div class="row">
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">Id</th>
+					<th scope="col">Título</th>
+					<th scope="col">Ação</th>
+				</tr>
+			</thead>
+			<tbody>
+			@foreach($registros as $registro)
+				<tr>
+					<td scope="row">{{ $registro->id }}</td>
+					<td>{{ $registro->titulo }}</td>
+					<td>
+						<a class="btn btn-info btn-link" href=" {{ route('admin.tipos.editar', $registro->id) }}">Editar</a>
+						<a class="btn btn-danger btn-link" href="javascript: if(confirm('deletar esse registro ?')){ window.location.href = '{{ route('admin.tipos.deletar',$registro->id) }}' }">Deletar</a>
+					</td>
+				</tr>
+				@endforeach
+			</tbody>
+		</table>
+	</div>
+	<div class="row">
+		<a class="btn btn-outline-primary" href="{{ route('admin.tipos.adicionar') }}">Adicionar</a>
+	</div>
+</div>
 @endsection

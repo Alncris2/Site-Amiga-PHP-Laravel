@@ -1,33 +1,29 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
+	<h2 class="center">Adicionar Usuário</h2>
+	<div class="row">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="{{ route('admin.principal') }}">Início</a></li>
+				<li class="breadcrumb-item"><a href="{{ route('admin.usuarios') }}">Lista de Usuários</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Adicionar Usuários</li>
+			</ol>
+		</nav>
+	</div>
+</div>
+
+<div class="content-site">
 	<div class="container">
+		<form action="{{ route('admin.usuarios.salvar') }}" method="get">
 
-		<h2 class="center">Adicionar Usuário</h2>
-		<div class="row">
-			 <nav>
-  				  <div class="nav-wrapper green">
-    				  <div class="col s12">
-    					    <a href="{{ route('admin.principal') }}" class="breadcrumb">Início</a>
-        					<a href="{{ route('admin.usuarios') }}" class="breadcrumb">Lista de Usuários</a>
-        					<a  class="breadcrumb">Adicionar Usuários</a>
-   					  </div>
-   				  </div>
- 			 </nav>
-		</div>
-
-		<div class="row">
-			<form action="{{ route('admin.usuarios.salvar') }}" method="get">
-			
 			{{ csrf_field() }}
 			@include('admin.usuarios._form')
 
-			<button class="btn blue">Adicionar</button>
-
-			</form>
-		</div> 
-
+			<button class="btn btn-outline-primary">Adicionar</button>
+		</form>
 	</div>
-	
+</div>
 
 @endsection

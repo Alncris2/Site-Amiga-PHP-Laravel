@@ -1,35 +1,50 @@
-<div class="slider">
-	<ul class="slides" id="slides-1">
-		<li>	
-			<img src="{{asset('imagens/slide1.jpg')}}" alt="Imagem">
-			<div class="caption center-align">
 
-				<h3>Sucos</h3>
-				
-			</div>	
-		</li>
-		<li>
-			<img src="{{asset('imagens/slide2.jpg')}}" alt="Imagem">
+	<section class="ftco-section ftco-no-pt ftco-no-pb" id="carousel">
+		<div class="container-fluid px-0">
+			<div class="row no-gutters justify-content-center">
+				<div class="col-md-12">
+					<div id="demo" class="carousel slide" data-ride="carousel">
 
-			<div class="caption right-align">
-					<h3>Proteinas</h3>
+						<!-- Indicators -->
+						<ul class="carousel-indicators">
+							<li data-target="#demo" data-slide-to="0" class="active"></li>
+							<li data-target="#demo" data-slide-to="1"></li>
+							<li data-target="#demo" data-slide-to="2"></li>
+						</ul>
 
-		</li>
-		<li>
-			<img src="{{asset('imagens/slide3.jpg')}}" alt="Imagem">
-			<div class="caption right-align">
+						<!-- The slideshow -->
+						<div class="carousel-inner">
+							<div class="carousel-item active img" style="background-image: url('lib/img/img1.jpg'); height: 100%; background-repeat: no-repeat;
+                  background-attachment: fixed;">
+								<div class="overlay"></div>
+								<div class="slider-text px-4 d-flex align-items-center">
+								</div>
+							</div>
+							<div class="carousel-item img" style="background-image: url('lib/img/img2.jpg'); height: 100%; background-repeat: no-repeat;
+                  background-attachment: fixed;">
+								<div class="overlay"></div>
+								<div class="slider-text px-4 d-flex align-items-center">
+								</div>
+							</div>
+							<div class="carousel-item img" style="background-image: url('lib/img/img3.jpg'); height: 100%; background-repeat: no-repeat;
+                  background-attachment: fixed;">
+								<div class="overlay"></div>
+								<div class="slider-text px-4 d-flex align-items-center">
+								</div>
+							</div>
+						</div>
 
-				<h3>Folhas</h3>
-				
-			</div>	
-		</li>
-
-		<li>
-			<img src="{{asset('imagens/slide4.jpg')}}" alt="Imagem">
-			<div class="caption center-align">
-			<h3>Verduras</h3>
-			</div>	
-		</li>
-		
-	</ul>
-</div>
+						<!-- Left and right controls -->
+						<a class="carousel-control-prev" href="#demo" data-slide="prev">
+							<span class="ion-ios-arrow-round-back"></span>
+						</a>
+						<a class="carousel-control-next" href="#demo" data-slide="next">
+							<span class="ion-ios-arrow-round-forward"></span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- - - - - -end- - - - -  -->
+</section>

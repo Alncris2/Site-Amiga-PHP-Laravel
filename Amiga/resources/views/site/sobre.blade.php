@@ -1,25 +1,32 @@
 	@extends('layouts.site')
 
 	@section('content')
-	
-	<div class="container">
-		<div class="row section">
-			<h3 align="center">Sobre</h3>
-			<div class="divider"></div>
-		</div>
-		<div class="row section">
-			<div class="col s12 m6">
-				<img class="responsive-img" src="{{asset($pagina->imagem)}}" >
+	<section class="content-site">
+		<div class="container">
+			<div class="row section">
+				<div class="panel-body">
+					@if(isset($pagina->mapa1))
+					<div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
+						<!--Google map-->
+						{!! $pagina->mapa !!}
+					</div>
+
+					@else
+					<div class="col-sm-6">
+						<figure>
+							<img src=" {{ asset($pagina->imagem) }} " width="95%" height="95%" alt="Imagem Xis">
+						</figure>
+					</div>
+					@endif
+
+					<h2 class="text-center"> {{ $pagina->titulo}} </h2>
+					<blockquote class="blockquote text-justify"> {{ $pagina->descricao}}</blockquote>
+					<br>
+					<div class="text-justify recuo">
+					{!! nl2br ($pagina->texto) !!}
+					</div>
+				</div>
 			</div>
-			<div class="col s12 m6">
-				<h4>{{ $pagina->titulo}}</h4>
-				<blockquote>
-					{{ $pagina->descricao }}
-				</blockquote>
-				<p>
-					{{ $pagina->texto }}
-				</p>
-			</div>
-		</div>
-	</div>
+			</>
+	</section>
 	@endsection

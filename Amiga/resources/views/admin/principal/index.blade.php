@@ -2,9 +2,11 @@
 
 @section('content')
 
+<section class="content-site" >
 	<div class="container">
-		<h2>Principal</h2>
-		
+		<div class="row">
+			<h2>Principal</h2>
+		</div>
 	</div>
-
-	@endsection
+</section>
+@endsection

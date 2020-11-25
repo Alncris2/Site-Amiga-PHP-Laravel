@@ -43,30 +43,53 @@
 <body>
 
 
-    <section class="header-site">
-        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-danger" id="ftco-navbar">
-            <div class="container">
-                <a class="navbar-brand" href="layout.html">Amiga</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="oi oi-menu"></span> Menu</button>
-                <div class="collapse navbar-collapse" id="ftco-nav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a href="home" class="nav-link icon d-flex align-items-center"><i class="ion-ios-home mr-2"></i> Home</a></li>
-                        <li class="nav-item"><a href="atividades.html" class="nav-link icon d-flex align-items-center"><i class="ion-ios-calendar mr-2"></i> Opção 1</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link icon d-flex align-items-center"><i class="ion-ios-text-snippet mr-2"></i> Opção 2</a></li>
-                    </ul>
+
+
+    <header>
+        @include('layouts._admin._nav')
+    </header>
+
+
+    @if(Session::has('mensagem'))
+    <section class="ftco-section" id="notifications">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="{{ Session::get('mensagem')['class'] }}">
+
+                        <div class="d-flex">
+                            <div class="alert-icon">
+                                <i class="{{ Session::get('icon')['class'] }}"></i>
+                            </div>
+                            <p class="mb-0 ml-2"><b>{{ Session::get('alert')['msg'] }}
+                                    <div class="text-center">
+                                        {{ Session::get('mensagem')['msg'] }}
+                                    </div>
+                            </p>
+                        </div>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true"><i class="ion-ios-close"></i></span>
+                        </button>
+                    </div>
                 </div>
             </div>
-        </nav>
+        </div>
     </section>
+    @endif
 
     <main class="py-4">
-        @yield('content')
+        <div class="content">
+            @yield('content')
+        </div>
     </main>
+    <footer class="footer navbar-fixed-bottom">
+        @include('layouts._admin._footer')
+    </footer>
 </body>
 
 <!-- Scripts -->
 
+<script src="https://kit.fontawesome.com/a03d9b062f.js" crossorigin="anonymous"></script>
 <script src="{{ asset('lib/aos/src/js/aos.js') }}" defer></script>
 
 <script src="{{ asset('lib/jquery/dist/jquery.min.js') }}" defer></script>
@@ -82,5 +105,7 @@
 
 <script src="{{ asset('lib/js/moment-with-locales.min.js') }}" defer></script>
 <script src="{{ asset('lib/js/bootstrap-datetimepicker.min.js') }}" defer></script>
+
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
 </html>
