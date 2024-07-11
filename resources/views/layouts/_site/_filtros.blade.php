@@ -1,26 +1,22 @@
 <section class="search-sec">
     <div class="container">
-        <form action="#" method="post" novalidate="novalidate">
+        <form action="{{ route('site.busca') }}">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <input type="text" class="form-control search-slt" placeholder="Enter Search">
+                            <input type="text" class="form-control" name="titulo" placeholder="Enter Search">
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <select class="form-control search-slt" >
-<!--                               4 stars and up -->
-                                <option>
-                                  <a><p>Atividade</p></a href="#">
-                                </option>
-<!--                               3 stars and up -->
-                                <option>
-                                    <a><p>Notícia</p></a href="#">
-                                </option>   </option>
+                            <select name="tipo_id" class="form-control">
+                                <option value="todos">Todos os tipos</option>
+                                @foreach($tipos as $tipo)
+                                <option value="{{$tipo->id}}">{{$tipo->titulo}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <button type="button" class="btn btn-danger wrn-btn">Search</button>
+                            <button type="button" class="btn btn-danger wrn-btn">Pesquisar</button>
                         </div>
                     </div>
                 </div>

@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Guia;
-use App\Tipo;
+use App\tipo;
 
 class guiaController extends Controller
 {
@@ -17,7 +18,7 @@ class guiaController extends Controller
 
     public function adicionar()
     {	
-    	$tipos = Tipo::all();
+    	$tipos = tipo::all();
 
         return view('admin.guias.adicionar',compact('tipos'));
     }
@@ -38,7 +39,7 @@ class guiaController extends Controller
         $file = $request->file('imagem');
     	if ($file) {
     		$rand = rand(11111, 99999);
-            $diretorio = "lib/img/guias/img/".Str::slug($dados['titulo'], '_'). "/";
+            $diretorio = "public/lib/img/guias/".Str::slug($dados['titulo'],'_'). "/";
     		$ext = $file->guessClientExtension();
     		$nomeArquivo = "_img_".$rand.".".$ext;
     		$file->move($diretorio,$nomeArquivo);
@@ -47,7 +48,7 @@ class guiaController extends Controller
         $file = $request->file('imagemseg');
     	if ($file) {
     		$rand = rand(11111, 99999);
-            $diretorio = "lib/img/guias/img/".Str::slug($dados['titulo'], '_'). "/";
+            $diretorio = "public/lib/img/guias/".Str::slug($dados['titulo'],'_'). "/";
     		$ext = $file->guessClientExtension();
     		$nomeArquivo = "_img_".$rand.".".$ext;
     		$file->move($diretorio,$nomeArquivo);
@@ -86,7 +87,7 @@ class guiaController extends Controller
         $file = $request->file('imagem');
     	if ($file) {
     		$rand = rand(11111, 99999);
-    		$diretorio = "lib/img/guias/".$id."/";
+    		$diretorio = "public/lib/img/guias/".$id."/";
     		$ext = $file->guessClientExtension();
     		$nomeArquivo = "_img_".$rand.".".$ext;
     		$file->move($diretorio,$nomeArquivo);
@@ -95,7 +96,7 @@ class guiaController extends Controller
         $file = $request->file('imagemseg');
         if ($file) {
     		$rand = rand(11111, 99999);
-    		$diretorio = "lib/img/guias/".$id."/";
+    		$diretorio = "public/lib/img/guias/".$id."/";
     		$ext = $file->guessClientExtension();
     		$nomeArquivo = "_img_".$rand.".".$ext;
     		$file->move($diretorio,$nomeArquivo);
@@ -116,7 +117,7 @@ class guiaController extends Controller
         
         guia::find($id)->delete();
 
-        \Session::flash('mensagem',['msg'=>'Registro criado com sucesso!','class'=>'alert alert-success']);
+        \Session::flash('mensagem',['msg'=>'Registro deletado com sucesso!','class'=>'alert alert-success']);
         \Session::flash('icon',['class'=>'ion-ios-checkmark-circle']);
         \Session::flash('alert',['msg'=>'Alerta: ','class'=>'mb-0 ml-2']);
          

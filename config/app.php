@@ -13,7 +13,9 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME'),
+    'descricao'=>'ASSOCIAÇÃO DE CRIANÇAS E ADOLESCENTES DE IGARAPAVA',
+    'imagem'=>'public\lib\img\padrãopng.png',
 
     /*
     |--------------------------------------------------------------------------

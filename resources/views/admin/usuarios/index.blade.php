@@ -27,14 +27,17 @@
 			</thead>
 			<tbody>
 				@foreach($usuarios as $usuario)
-				<tr>
+				<tr>                
 					<td scope="row">{{ $usuario->id }}</td>
 					<td>{{ $usuario->name }}</td>
 					<td>{{ $usuario->email }}</td>
-					<td>
-						<a class="btn btn-info btn-link" href=" {{ route('admin.usuarios.editar', $usuario->id) }}">Editar</a>
-						<a class="btn btn-danger btn-link" href="javascript: if(confirm('deletar esse registro ?')){ window.location.href = '{{ route('admin.usuarios.deletar',$usuario->id) }}' }">Deletar</a>
-					</td>
+                    <?php if ($usuario->id != 0) : ?> 
+                        <td>                    
+                            <a class="btn btn-info btn-link" href=" {{ route('admin.usuarios.editar', $usuario->id) }}">Editar</a>                        
+                            <a class="btn btn-danger btn-link" href="javascript: if(confirm('deletar esse registro ?')){ window.location.href = '{{ route('admin.usuarios.deletar',$usuario->id) }}' }">Deletar</a>                         
+                        </td>
+                     <?php endif; ?> 
+                   
 				</tr>
 				@endforeach
 			</tbody>

@@ -1,4 +1,4 @@
-@if(isset($registro->imagem))
+@if(isset($registro->imagemseg))
 
 <div class="row justify-content-md">
 	<div class="col-md-2">
@@ -8,11 +8,10 @@
 		</div>
 	</div>
 </div>
-
 <div class="row justify-content-md">
 	<div class="col-md-4">
 		<div class="form-group">
-			<input type="text" name="descrição" class="form-control form-control-shadow validade" value="{{ isset($registro->descrição) ? $registro->descrição : '' }}">
+			<input type="text" name="descricao" class="form-control form-control-shadow validade" value="{{ isset($registro->descricao) ? $registro->descricao : '' }}">
 			<label class="form-control-placeholder" for="descrição">Descrição</label>
 		</div>
 	</div>
@@ -21,8 +20,8 @@
 <div class="row justify-content-md">
 	<div class="col-md-4">
 		<div class="form-group">
-			<input type="text" name="descrição" class="form-control form-control-shadow validade" value="{{ isset($registro->Ordem) ? $registro->descrição : '' }}">
-			<label class="form-control-placeholder" for="descrição">Ordem</label>
+			<input type="text" name="ordem" class="form-control form-control-shadow validade" value="{{ isset($registro->ordem) ? $registro->ordem : '' }}">
+			<label class="form-control-placeholder" for="ordem">Ordem</label>
 		</div>
 	</div>
 </div>
@@ -31,11 +30,11 @@
 	<div class="file-field input-field col m6 s12">
 		<div class="btn">
 			<span>Imagem</span>
-			<input type="file" name="imagem">
+			<input type="file" name="imagemseg">
 		</div>
 	</div>
 	<div class="col m6 s12">
-		<img width="120px" src="{{asset($registro->imagem)}}">
+		<img width="120px" src="{{asset($registro->imagemseg)}}">
 	</div>
 </div>
 <br>

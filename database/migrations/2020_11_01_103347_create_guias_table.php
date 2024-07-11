@@ -22,8 +22,8 @@ class CreateGuiasTable extends Migration
             $table->string('descrição');
             $table->string('texto');
             $table->string('paragrafo2')->nullable();
-            $table->string('imagem')->default('lib/img/amiga2.jpeg');
-            $table->string('imagemseg')->default('lib/img/amiga2.jpeg');
+            $table->string('imagem')->default('public/lib/img/amiga2.jpeg');
+            $table->string('imagemseg')->nullable();
             $table->bigInteger('visualizacoes')->default(0);
             $table->enum('publicar',['sim','nao'])->default('nao');
             $table->timestamps();

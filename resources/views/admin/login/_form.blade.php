@@ -1,4 +1,4 @@
-<section class="ftco-section ftco-section-2 section-signup page-header img" style="background-image: url('{{asset('lib/img/fachada.jpg')}}'); data-stellar-background-ratio: 0.5px background-repeat: no-repeat; height: 100%; width: 100%;">
+<section class="ftco-section ftco-section-2 section-signup page-header img" style="background-image: url('{{asset('public/lib/img/fachada.jpg')}}'); data-stellar-background-ratio: 0.5px background-repeat: no-repeat; height: 100%; width: 100%;">
 		<div class="overlay"></div>
 	<div class="container">
 	  <div class="row justify-content-center">

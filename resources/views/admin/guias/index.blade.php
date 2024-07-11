@@ -32,12 +32,13 @@
 				@foreach($registros as $registro)
 				<tr>
 					<td scope="row">{{ $registro->id }}</td>
-					<td>{{ $registro->titulo }}</td>
+					<td>{{ str_limit($registro->titulo, 45,'...') }}</td>
 					<td>{{ $registro->tipo->titulo }}</td>
 					<td><img width="100px" height="50px" src="{{asset($registro->imagem)}}"></td>
 					<td>{{ $registro->publicar }}</td>
 					<td>
 						<a class="btn btn-info btn-link" href="{{ route('admin.guias.editar', $registro->id) }}">Editar</a>
+						<a class="btn btn-warning btn-link" href="{{ route('admin.galerias', $registro->id) }}">Galeria</a>
 						<a class="btn btn-danger btn-link" href="javascript: if(confirm('deletar esse registro ?')){ window.location.href = '{{ route('admin.guias.deletar',$registro->id) }}' }">Deletar</a>
 					</td>
 				</tr>

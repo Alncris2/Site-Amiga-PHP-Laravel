@@ -19,7 +19,7 @@ class CreateGaleriasTable extends Migration
             $table->foreign('guia_id')->references('id')->on('guias');
             $table->string('titulo')->nullable();
             $table->string('descricao')->nullable();
-            $table->string('imagem');
+            $table->string('imagemseg');
             $table->string('ordem')->nullable();
             $table->timestamps();
         });

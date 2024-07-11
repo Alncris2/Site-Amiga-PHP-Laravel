@@ -20,10 +20,10 @@
 					@endif
 
 					<h2 class="text-center"> {{ $pagina->titulo}} </h2>
-					<blockquote class="blockquote text-justify"> {{ $pagina->descricao}}</blockquote>
+					<blockquote class="blockquote text-center "> {{ $pagina->descricao}}</blockquote>
 					<br>
 					<div class="text-justify recuo">
-					{!! nl2br ($pagina->texto) !!}
+					{!! nl2br( $pagina->texto ) !!}
 					</div>
 				</div>
 			</div>

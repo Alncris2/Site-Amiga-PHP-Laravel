@@ -1,5 +1,5 @@
 <div class="row justify-content-md">
-	<div class="col-md-2">
+	<div class="col-md-4">
 		<div class="form-group">
 			<input type="text" name="titulo" class="form-control form-control-shadow validade" value="{{ isset($pagina->titulo) ? $pagina->titulo : '' }}">
 			<label class="form-control-placeholder" for="descricao">Título</label>
@@ -24,6 +24,15 @@
 		</div>
 	</div>
 </div>
+
+<div class="">
+	<div class="form-group">
+		<textarea name="mapa" cols="90" class="form-contro" id="exampleFormControlTextarea3" rows="7">
+		{{ isset($pagina->mapa) ? $pagina->mapa : '' }}
+		</textarea>
+		<label class="form-control-placeholder" for="exampleFormControlTextarea1">Mapa <a target="_blank" href="https://ajuda.site.com.br/auto-ajuda/incorporar-mapa-do-google-maps/"><i class="ion-ios-information-circle mr-2"></i></a></label>
+	</div>
+</div>
 @endif
 <br>
 <div class="">
@@ -31,7 +40,7 @@
 		<textarea name="texto" cols="90" class="form-contro" id="exampleFormControlTextarea3" rows="7">
 		{{ isset($pagina->texto) ? $pagina->texto : '' }}
 		</textarea>
-		<label class="form-control-placeholder" for="exampleFormControlTextarea1">Texto</label>
+		<label class="form-control-placeholder" for="exampleFormControlTextarea1">Endereço</label>
 	</div>
 </div>
 
@@ -47,10 +56,6 @@
 			</div>
 		</div>
 		<br><br>
-		<div class="form-group">
-			<input type="text" class="file-path form-control form-control-shadow validade">
-			<label class="form-control-placeholder" for="email">Iframe do Mapa</label>
-		</div>
 
 	</div>
 	<div class="col m6 s12">

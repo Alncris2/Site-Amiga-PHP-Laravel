@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-	<h2 class="center">Lista de Usuários
+	<h2 class="center">Lista de Páginas
 	</h2>
 
 	<div class="row">
@@ -10,7 +10,7 @@
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="{{ route('admin.principal') }}">Início</a></li>
-				<li class="breadcrumb-item active" aria-current="page">Lista de Página</li>
+				<li class="breadcrumb-item active" aria-current="page">Lista de Páginas</li>
 			</ol>
 		</nav>
 
@@ -32,7 +32,7 @@
 				<tr>
 					<td scope="row">{{ $pagina->id }}</td>
 					<td>{{ $pagina->titulo }}</td>
-					<td>{{ $pagina->descricao }}</td>
+					<td>{{ str_limit($pagina->descricao, 45,'...') }} </td>
 					<td>{{ $pagina->tipo }}</td>
 					<td>
 						<a class="btn btn-info btn-link" href="{{ route('admin.paginas.editar', $pagina->id) }}">Editar</a>

@@ -8,10 +8,12 @@
           <li class="nav-item"><a href="{{ route('site.home') }}" class=" nav-link icon d-flex align-items-center"><i class="ion-ios-home mr-2"></i> Home</a></li>
           <!-- <li class="nav-item"><a href="atividades.html" class="nav-link icon d-flex align-items-center"><i
                 class="ion-ios-calendar mr-2"></i> Atividades</a></li> -->
-          <li class="nav-item"><a href="{{route('site.noticia')}}" class="nav-link icon d-flex align-items-center"><i class="ion-ios-text-snippet mr-2"></i> Notícias</a></li>
-          <li class="nav-item"><a href="{{route('site.sobre')}}" class="nav-link icon d-flex align-items-center"><i class="ion-ios-text-snippet mr-2"></i> Sobre</a></li>
-          <li class="nav-item"><a href="{{route('site.contato')}}" class="nav-link icon d-flex align-items-center"><i class="ion-ios-text-snippet mr-2"></i> Contatos</a></li>
-          <li class="nav-item"><a href="{{route('site.portal')}}" class="nav-link icon d-flex align-items-center"><i class="ion-ios-text-snippet mr-2"></i> Portal Trasparência</a></li>
+          <li class="nav-item"><a href="{{route('site.noticia')}}" class="nav-link icon d-flex align-items-center"><i class="ion-ios-paper mr-2"></i> Notícias</a></li>
+          <li class="nav-item"><a href="{{route('site.atividade')}}" class="nav-link icon d-flex align-items-center"><i
+                class="ion-ios-calendar mr-2"></i> Atividades</a></li>
+          <li class="nav-item"><a href="{{route('site.sobre')}}" class="nav-link icon d-flex align-items-center"><i class="ion-ios-information-circle mr-2"></i> Sobre</a></li>
+          <li class="nav-item"><a href="{{route('site.contato')}}" class="nav-link icon d-flex align-items-center"><i class="ion-ios-mail mr-2"></i> Contatos</a></li>
+          <li class="nav-item"><a href="{{route('site.portal')}}" class="nav-link icon d-flex align-items-center"><i class="ion-ios-filing mr-2"></i> Portal Trasparência</a></li>
         </ul>
       </div>
   </div>

@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -7,11 +7,21 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    
+    <title>{{ isset($app['name']) ? $app['name']: config('app.name') }}</title>
+    <meta name="description" content="{{ isset($seo['descricao']) ? $seo['descricao']: config('seo.descricao') }}">
 
-    <title>{{ config('app.name', 'Amiga') }}</title>
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" value="summary">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ isset($seo['titulo']) ? $seo['titulo']: config('seo.titulo') }}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="{{ isset($seo['url']) ? $seo['url']: config('app.url') }}"/>
+    <meta property="og:image" content="{{ isset($seo['imagem']) ? $seo['imagem']: config('seo.imagem') }}"/>
+    <meta property="og:description" content="{{ isset($seo['descricao']) ? $seo['descricao']: config('seo.descricao') }}"/>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
 
     <!-- Fonts -->
@@ -19,24 +29,25 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <link href="{{ asset('lib/css/ionicons.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('lib/css/icomoon.css') }}" rel="stylesheet">
-    <link href="{{ asset('lib/css/flaticon.css') }}" rel="stylesheet">
-    <link href="{{ asset('lib/css/open-iconic-bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/lib/css/ionicons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/lib/css/icomoon.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/lib/css/flaticon.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/lib/css/open-iconic-bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('lib/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/lib/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/lib/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
 
-    <link href="{{ asset('lib/css/animate.css') }}" rel="stylesheet">
-    <link href="{{ asset('lib/css/owl.carousel.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('lib/css/owl.theme.default.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('lib/css/magnific-popup.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/lib/css/animate.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/lib/css/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/lib/css/owl.theme.default.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/lib/css/magnific-popup.css') }}" rel="stylesheet">
 
-    <link href="{{ asset('lib/aos/dist/aos.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/lib/aos/dist/aos.css') }}" rel="stylesheet">
 
-    <link href="{{ asset('lib/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('lib/css/style2.css') }}" rel="stylesheet">
-    <link href="{{ asset('lib/css/footer.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/lib/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/lib/css/style2.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/lib/css/footer.css') }}" rel="stylesheet">
 
 </head>
 
@@ -71,10 +82,9 @@
         </div>
     </section>
     @endif
-    <main class="py-4">
+    <main role="main">
         @yield('content')
     </main>
-
 
     <footer>
     @include('layouts._site._footer')
@@ -85,22 +95,21 @@
 <!-- Scripts -->
 <script src="https://kit.fontawesome.com/a03d9b062f.js" crossorigin="anonymous"></script>
 
-<script src="{{ asset('lib/aos/src/js/aos.js') }}" defer></script>
+<script src="{{ asset('public/lib/aos/src/js/aos.js') }}" defer></script>
 
-<script src="{{ asset('lib/jquery/dist/jquery.min.js') }}" defer></script>
-<script src="{{ asset('lib/jquery.stellar/jquery.stellar.min.js') }}" defer></script>
+<script src="{{ asset('public/lib/jquery/dist/jquery.min.js') }}" defer></script>
+<script src="{{ asset('public/lib/jquery.stellar/jquery.stellar.min.js') }}" defer></script>
 
-<script src="{{ asset('lib/bootstrap/js/src/carousel.js') }}" defer></script>
+<script src="{{ asset('public/lib/bootstrap/js/src/carousel.js') }}" defer></script>
 
 
-<script src="{{ asset('lib/popper-core-master/src/popper.js') }}" defer></script>
-<script src="{{ asset('lib/js/jquery.easing.1.3.js') }}" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js" integrity="sha512-BmM0/BQlqh02wuK5Gz9yrbe7VyIVwOzD1o40yi1IsTjriX/NGF37NyXHfmFzIlMmoSIBXgqDiG1VNU6kB5dBbA==" crossorigin="anonymous"></script>
 
-<script src="{{ asset('lib/js/nouislider.min.js') }}" defer></script>
+<script src="{{ asset('public/lib/js/jquery.easing.1.3.js') }}" defer></script>
 
-<script src="{{ asset('lib/js/moment-with-locales.min.js') }}" defer></script>
-<script src="{{ asset('lib/js/bootstrap-datetimepicker.min.js') }}" defer></script>
+<script src="{{ asset('public/lib/js/nouislider.min.js') }}" defer></script>
 
-<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script src="{{ asset('public/lib/js/moment-with-locales.min.js') }}" defer></script>
+<script src="{{ asset('public/lib/js/bootstrap-datetimepicker.min.js') }}" defer></script>
 
 </html>

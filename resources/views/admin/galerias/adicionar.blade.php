@@ -7,6 +7,7 @@
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="{{ route('admin.principal') }}">Início</a></li>
+				<li class="breadcrumb-item"><a href="{{ route('admin.guias') }}">Lista de Guias</a></li>
 				<li class="breadcrumb-item"><a href="{{ route('admin.galerias',$guia->id) }}">Galerias de Imagens</a></li>
 				<li class="breadcrumb-item active" aria-current="page">Adicionar imagens</li>
 			</ol>
@@ -17,7 +18,7 @@
 
 	<div class="content-site">
 		<div class="container">
-			<form action="{{ route('admin.galerias.salvar', $guia->id) }}" method="get">
+			<form action="{{ route('admin.galerias.salvar', $guia->id) }}" method="post" enctype="multipart/form-data">
 
 				{{ csrf_field() }}
 				@include('admin.galerias._form')

@@ -16,7 +16,7 @@
 
 <div class="content-site">
 	<div class="container">
-		<form action="{{ route('admin.tipos.salvar') }}" method="get">
+		<form action="{{ route('admin.tipos.salvar') }}" method="post">
 
 			{{ csrf_field() }}
 			@include('admin.tipos._form')

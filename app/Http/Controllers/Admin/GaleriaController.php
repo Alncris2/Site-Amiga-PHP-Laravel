@@ -38,8 +38,6 @@ class GaleriaController extends Controller
         else{
             $ordemAtual =0;
         }
-
-        
         if($request->hasFile('imagens'))
         {
             $arquivos = $request->file('imagens');
@@ -48,14 +46,14 @@ class GaleriaController extends Controller
                 $registro = new Galeria();
 
                 $rand = rand(11111, 99999);
-                $diretorio = "lib/img/guias/" .Str::slug($guia->titulo, '_');
+                $diretorio = "public/lib/img/guias/".Str::slug($guia->titulo,'_'). "/";
     		    $ext = $imagemseg->guessClientExtension();
     		    $nomeArquivo = "_img_".$rand.".".$ext;
                 $imagemseg->move($diretorio,$nomeArquivo);
                 $registro->guia_id = $guia->id;
                 $registro->ordem = $ordemAtual + 1;
                 $ordemAtual++;
-    		    $registro->imagemseg = $diretorio.'/'.$nomeArquivo; 
+    		    $registro->imagemseg = $diretorio.$nomeArquivo; 
                 
                 $registro->save();
             }
@@ -79,21 +77,25 @@ class GaleriaController extends Controller
 
     public function atualizar(Request $request, $id)
     {
-        $registro = Guia::find($id);
+        $registro = Galeria::find($id);
         $dados = $request->all();
 
         $registro->titulo = $dados['titulo'];
-        $registro->descrição = $dados['descrição'];
-
+        $registro->descricao = $dados['descricao'];
+        $registro->ordem = $dados['ordem'];
+        $guia = $registro->guia;
+        
         $file = $request->file('imagemseg');
         if ($file) {
     		$rand = rand(11111, 99999);
-    		$diretorio = "lib/img/guias/".Str::slug($guia->titulo, '_');
+    		$diretorio = "public/lib/img/guias/".Str::slug($guia->titulo,'_'). "/";
     		$ext = $file->guessClientExtension();
     		$nomeArquivo = "_img_".$rand.".".$ext;
     		$file->move($diretorio,$nomeArquivo);
-    		$registro->imagemseg = $diretorio.'/'.$nomeArquivo; 
-    	}
+    		$registro->imagemseg = $diretorio.$nomeArquivo; 
+        }
+
+        
 
         $registro->update();
 
@@ -101,7 +103,7 @@ class GaleriaController extends Controller
         \Session::flash('icon',['class'=>'ion-ios-checkmark-circle']);
         \Session::flash('alert',['msg'=>'Alerta: ','class'=>'mb-0 ml-2']);
 
-        return redirect()->route('admin.galerias', $id);
+        return redirect()->route('admin.galerias',$guia->id);
     }
 
     public function deletar($id)
@@ -111,7 +113,7 @@ class GaleriaController extends Controller
 
         $galeria->delete();
 
-        \Session::flash('mensagem',['msg'=>'Registro criado com sucesso!','class'=>'alert alert-success']);
+        \Session::flash('mensagem',['msg'=>'Registro deletado com sucesso!','class'=>'alert alert-success']);
         \Session::flash('icon',['class'=>'ion-ios-checkmark-circle']);
         \Session::flash('alert',['msg'=>'Alerta: ','class'=>'mb-0 ml-2']);
          

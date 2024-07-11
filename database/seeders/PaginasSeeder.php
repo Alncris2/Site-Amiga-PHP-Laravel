@@ -28,7 +28,7 @@ class PaginasSeeder extends Seeder
         $paginaSobre->titulo = 'Amiga';
         $paginaSobre->descricao = 'Descrição breve sobre a empresa.';
         $paginaSobre->texto = 'Texto sobre a empresa.';
-        $paginaSobre->imagem = 'lib/img/amiga2.jpeg';
+        $paginaSobre->imagem = 'public/lib/img/amiga2.jpeg';
         $paginaSobre->tipo = 'sobre';
         $paginaSobre->save();
 
@@ -45,7 +45,7 @@ class PaginasSeeder extends Seeder
         Rua Cap. Vitoriano Machado, 565 - Centro
         Igarapava-SP - CEP: 14540-000
         Fone: (16) 98225-0062';
-        $paginaContato->imagem = 'lib/img/amiga2.jpeg';
+        $paginaContato->imagem = 'public/lib/img/amiga2.jpeg';
         $paginaContato->email = 'admin@admin.com';
         $paginaContato->mapa = '<iframe
         src="https://www.google.com/maps/embed?pb=!4v1600130783158!6m8!1m7!1slbTAeKhqeCVE4Nh6id27ig!2m2!1d-20.03842936921668!2d-47.75200883792919!3f272.21316806201384!4f-8.684760643138773!5f0.7820865974627469"
@@ -53,6 +53,23 @@ class PaginasSeeder extends Seeder
         allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>';
         $paginaContato->tipo = 'contato';
         $paginaContato->save();
+
+        $existe = Pagina::where('tipo','=','home')->count();
+
+        if($existe){
+        	$paginaHome = Pagina::where('tipo','=','home')->first();
+        }
+        else{
+        	$paginaHome = new Pagina();
+        }
+
+        $paginaHome->titulo = 'Amiga';
+        $paginaHome->descricao = 'Em breve uma descrição da tela principal';
+        $paginaHome->texto = 'Texto da tela principal';
+        $paginaHome->imagem = '';
+        $paginaHome->tipo = 'Home';
+        $paginaHome->save();
+
     }
 }
 

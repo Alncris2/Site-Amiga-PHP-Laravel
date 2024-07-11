@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Tipo;
+use App\tipo;
 use App\guia;
 
 class TipoController extends Controller

@@ -24,7 +24,7 @@
 	</div>
 	<div class="col m6 s12">
 		@if(isset($registro->imagem))
-			<img width="120px" src="{{asset($registro->imagem)}}">
+		<img width="120px" src="{{asset($registro->imagem)}}">
 		@endif
 	</div>
 </div>
@@ -49,7 +49,7 @@
 	</div>
 	<div class="col m6 s12">
 		@if(isset($registro->imagemseg))
-			<img width="120px" src="{{asset($registro->imagemseg)}}">
+		<img width="120px" src="{{asset($registro->imagemseg)}}">
 		@endif
 	</div>
 </div>
@@ -97,27 +97,27 @@
 </div> -->
 
 <div class="form-group">
-<div class="input-field col s12">
-	<select name="publicar">
-		<option value="nao" {{(isset($registro->publicar) && $registro->publicar == 'nao' ? 'selected' : '')}}>
-			Não
-		</option>
-		<option value="sim" {{(isset($registro->publicar) && $registro->publicar == 'sim' ? 'selected' : '')}}>
-			Sim
-		</option>
-	</select>
-	<label>Publicar?</label>
-</div>
+	<div class="input-field col s12">
+		<select name="publicar">
+			<option value="nao" {{(isset($registro->publicar) && $registro->publicar == 'nao' ? 'selected' : '')}}>
+				Não
+			</option>
+			<option value="sim" {{(isset($registro->publicar) && $registro->publicar == 'sim' ? 'selected' : '')}}>
+				Sim
+			</option>
+		</select>
+		<label>Publicar?</label>
+	</div>
 </div>
 
 <div class="form-group">
-<div class="input-field col s12">
-	<select name="tipo_id">
-		@foreach ($tipos ?? '' as $tipo)
-		<option value="{{ $tipo->id }}" {{( isset($registro->tipo_id) && $registro->tipo_id == $tipo->id ? 'selected' : '')}}>
-			{{$tipo->titulo}}</option>
-		@endforeach
-	</select>
-	<label>Tipo da notícia</label>
-</div>
+	<div class="input-field col s12">
+		<select name="tipo_id">
+			@foreach ($tipos ?? '' as $tipo)
+			<option value="{{ $tipo->id }}" {{( isset($registro->tipo_id) && $registro->tipo_id == $tipo->id ? 'selected' : '')}}>
+				{{$tipo->titulo}}</option>
+			@endforeach
+		</select>
+		<label>Tipo da notícia</label>
+	</div>
 </div>

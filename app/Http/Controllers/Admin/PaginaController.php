@@ -8,13 +8,6 @@ use App\Pagina;
 
 class PaginaController extends Controller
 {
-	public function sobre ()
-	{
-		$pagina = Pagina::where('tipo','=','sobre')-first();
-		dd($pagina);
-		return view('site.sobre');
-	}
-
     public function index()
     {	
     	$paginas = Pagina::all();
@@ -33,20 +26,22 @@ class PaginaController extends Controller
     	$pagina = Pagina::find($id);
     	$pagina->titulo = trim($dados['titulo']);
     	$pagina->descricao = trim($dados['descricao']);
-    	$pagina->texto = trim($dados['texto']);
+		$pagina->texto = trim($dados['texto']);
+		
 
     	if(isset($dados['email'])){
-    		$pagina->email = trim($dados['email']);
+			$pagina->email = trim($dados['email']);
+			$pagina->mapa = trim($dados['mapa']);
     	}
 
     	$file = $request->file('imagem');
     	if ($file) {
     		$rand = rand(11111, 99999);
-    		$diretorio = "lib/img/pagina/".$id."/";
+    		$diretorio = "public/lib/img/pagina/".$id."/";
     		$ext = $file->guessClientExtension();
     		$nomeArquivo = "_img_".$rand.".".$ext;
     		$file->move($diretorio,$nomeArquivo);
-    		$pagina->imagem = $diretorio.'/'.$nomeArquivo; 
+    		$pagina->imagem = $diretorio.$nomeArquivo; 
     	}
 
     	$pagina->update();

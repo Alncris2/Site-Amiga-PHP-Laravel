@@ -36,7 +36,7 @@
 
 								<div class="form-group">
 									<div class="col-md-12 text-center">
-										<button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+										<button type="submit" class="btn btn-danger btn-lg" disabled>Desativado</button>
 									</div>
 								</div>
 							</fieldset>
@@ -48,7 +48,6 @@
 						<div class="panel panel-default">
 							<legend class="text-center header">{{ $pagina->titulo }}</legend>
 							<div class="panel-body text-center">
-								<h4>Endereço e telefone</h4>
 
 								<div>
 									<div class="text-justify">

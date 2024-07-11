@@ -17,9 +17,10 @@
 
 	<div class="content-site">
 		<div class="container">
-			<form action="{{ route('admin.guias.salvar') }}" method="get">
+			<form action="{{ route('admin.guias.salvar') }}" method="post" enctype="multipart/form-data">
 
 				{{ csrf_field() }}
+				<input type="hidden" name="_method" value="put">
 				@include('admin.guias._form')
 
 				<button class="btn btn-outline-primary">Adicionar</button>
