@@ -15,7 +15,7 @@ class CreateGuiasTable extends Migration
     {
         Schema::create('guias', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreign('tipo_id')->references('id')->on('Tipos');
+            $table->foreignId('tipo_id')->references('id')->on('Tipos');
             $table->string('titulo');
             $table->string('descrição');
             $table->string('texto');

@@ -15,7 +15,7 @@ class CreateGaleriasTable extends Migration
     {
         Schema::create('galerias', function (Blueprint $table) {
             $table->increments('id');
-            $table->foreign('guia_id')->references('id')->on('guias');
+            $table->foreignId('guia_id')->references('id')->on('guias');
             $table->string('titulo')->nullable();
             $table->string('descricao')->nullable();
             $table->string('imagemseg');
